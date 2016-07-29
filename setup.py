@@ -19,6 +19,7 @@ setup(
     'celery',
     'redis',
     'IPython',
+    'certifi',
     'recast-database',
     'recast-search',
     'requests',
