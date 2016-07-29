@@ -82,8 +82,8 @@ login_manager.init_app(app)
 def home():
   all_users = dbmodels.User.query.all()
   print celeryapp.conf['CELERYBEAT_SCHEDULE']
-  celeryapp.set_current()
-  asynctasks.hello_world.delay()
+  # celeryapp.set_current()
+  # asynctasks.hello_world.delay()
   #asynctasks.sync_elasticsearch.delay(elasticsearchconfig)
   return render_template('home.html', user_data = all_users)
 
