@@ -21,7 +21,6 @@ psycopg2==2.6.1
 ptyprocess==0.5.1
 pytz==2015.7
 -e git+git://github.com/recast-hep/recast-database.git@master#egg=recast-database
--e git+git://github.com/cbora/recast-search.git@master#egg=recast-search
 PyYAML==3.11
 redis==2.10.5
 requests==2.9.1
