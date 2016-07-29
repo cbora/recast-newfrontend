@@ -73,24 +73,18 @@ app = create_app()
 login_manager = login.LoginManager()
 login_manager.init_app(app)
 
-"""
-# asynctasks.sync(elasticsearchconfig)
-CELERYBEAT_SCHEDULE = {
-  'add-every-30-seconds': {
-    'task': 'asynctasks.sync',
-    'schedule': timedelta(seconds=30),
-    'args': (elasticsearchconfig)
-    },
-  }
 
-CELERY_TIMEZONE = 'UTC'
-"""
+# asynctasks.sync(elasticsearchconfig)
+
+
   
 @app.route("/")
 def home():
   all_users = dbmodels.User.query.all()
-  # celeryapp.set_current()
-  # asynctasks.hello_world.delay()
+  print celeryapp.conf['CELERYBEAT_SCHEDULE']
+  celeryapp.set_current()
+  asynctasks.hello_world.delay()
+  #asynctasks.sync_elasticsearch.delay(elasticsearchconfig)
   return render_template('home.html', user_data = all_users)
 
 
